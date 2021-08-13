@@ -1,0 +1,16 @@
+version: "2.0"
+services:
+
+  php-fpm:
+    image: webdevops/php-dev:7.4
+    hostname: php-fpm
+    user: 1000:1000
+    volumes:
+      - "./www:/www"
+    working_dir: "/www"
+    networks:
+      - symfony
+
+networks:
+  symfony:
+    driver: bridge
